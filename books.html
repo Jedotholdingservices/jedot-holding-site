@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jedot Books | Jedot Holding Services</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .book-listing { background: white; border-radius: 8px; padding: 20px; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .book-item { margin-bottom: 20px; }
+    .book-item h3 { margin-top: 0; }
+    .price { font-weight: bold; }
+    .buttons a { display: inline-block; margin: 10px 10px 0 0; padding: 10px 15px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
+    .buttons a.borrow { background-color: #2196F3; }
+  </style>
 </head>
 <body>
   <header>
@@ -25,7 +33,28 @@
       <p>
         At Jedot, our books are more than just words — they are born from real-life experience, instinct, and the desire to inspire. Each book reflects the creative journey of Jessica and Dorothy, blending storytelling with spiritual, cultural, and personal depth.
       </p>
-      <p><em>Our collection is coming soon. Stay tuned for titles, excerpts, and where to buy.</em></p>
+
+      <div class="book-listing">
+        <div class="book-item">
+          <h3>Skinflint</h3>
+          <p class="price">Buy: €6.80 | Borrow (1 month): €2.80</p>
+          <div class="buttons">
+            <a href="/mnt/data/skinflint/skinflint-STANDARD.pdf" download>Download Sample</a>
+            <a href="#" class="buy">Buy Now</a>
+            <a href="#" class="borrow">Borrow</a>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <h3>Bothersome Kate</h3>
+          <p class="price">Buy: €6.80 | Borrow (1 month): €2.80</p>
+          <div class="buttons">
+            <a href="/mnt/data/bothersome_kate/bothersome-kate-STANDARD.pdf" download>Download Sample</a>
+            <a href="#" class="buy">Buy Now</a>
+            <a href="#" class="borrow">Borrow</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
