@@ -13,6 +13,7 @@
     .buttons a { display: inline-block; margin: 10px 10px 0 0; padding: 10px 15px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
     .buttons a.borrow { background-color: #2196F3; }
   </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=AT45qNgguC6V2qg7rPX727d0d6a27Zzfb_GSF8N-6yT2mtm1Zq_nao8Y4dJYbLLwAmemWsrUMqvypHse&disable-funding=paylater&currency=EUR"></script>
 </head>
 <body>
   <header>
@@ -51,28 +52,75 @@
   <p><strong>eBook format (PDF)</strong></p>
 
   <!-- Borrow for 2 weeks -->
-  <div style="margin-top: 15px;">
-    <p><strong>Borrow for 2 weeks – €2.80</strong></p>
-    <form action="https://www.paypal.com/ncp/payment/9MSE486H5P9RE" method="post" target="_blank">
-      <input type="submit" value="Pay €2.80" aria-label="Borrow Bothersome Kate for 2 weeks" style="background-color: #2196F3; color: white; border: none; padding: 8px 16px; border-radius: 5px;">
-    </form>
-  </div>
+<div style="margin-top: 15px;">
+  <p><strong>Borrow for 2 weeks – €2.80</strong></p>
+  <div id="paypal-button-kate-2weeks"></div>
+  <script>
+    paypal.Buttons({
+      style: { color: 'blue', label: 'pay', shape: 'pill' },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "Bothersome Kate - Borrow for 2 weeks",
+            amount: { value: '2.80' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
+        });
+      }
+    }).render('#paypal-button-kate-2weeks');
+  </script>
+</div>
 
-  <!-- Borrow for 4 weeks -->
-  <div style="margin-top: 10px;">
-    <p><strong>Borrow for 4 weeks – €5.00</strong></p>
-    <form action="https://www.paypal.com/ncp/payment/9N2G44MGBB4SY" method="post" target="_blank">
-      <input type="submit" value="Pay €5.00" style="background-color: #0b7dda; color: white; border: none; padding: 8px 16px; border-radius: 5px;">
-    </form>
-  </div>
+<!-- Borrow for 4 weeks -->
+<div style="margin-top: 10px;">
+  <p><strong>Borrow for 4 weeks – €5.00</strong></p>
+  <div id="paypal-button-kate-4weeks"></div>
+  <script>
+    paypal.Buttons({
+      style: { color: 'blue', label: 'pay', shape: 'pill' },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "Bothersome Kate - Borrow for 4 weeks",
+            amount: { value: '5.00' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
+        });
+      }
+    }).render('#paypal-button-kate-4weeks');
+  </script>
+</div>
 
-  <!-- Buy and keep forever -->
-  <div style="margin-top: 10px;">
-    <p><strong>Buy eBook (Forever) – €5.80</strong></p>
-    <form action="https://www.paypal.com/ncp/payment/T2DTEC45B5R8S" method="post" target="_blank">
-      <input type="submit" value="Pay €5.80" style="background-color: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 5px;">
-    </form>
-  </div>
+<!-- Buy and keep forever -->
+<div style="margin-top: 10px;">
+  <p><strong>Buy eBook (Forever) – €5.80</strong></p>
+  <div id="paypal-button-kate-own"></div>
+  <script>
+    paypal.Buttons({
+      style: { color: 'gold', label: 'pay', shape: 'pill' },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "Bothersome Kate - Own Forever",
+            amount: { value: '5.80' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
+        });
+      }
+    }).render('#paypal-button-kate-own');
+  </script>
 </div>
 
       <!-- Book 2: The Skinflint -->
@@ -84,28 +132,75 @@
   <p><strong>eBook format (PDF)</strong></p>
 
   <!-- Borrow for 2 weeks -->
-  <div style="margin-top: 15px;">
-    <p><strong>Borrow for 2 weeks – €2.80</strong></p>
-    <form action="https://www.paypal.com/ncp/payment/HTNRBYZ7PE4MA" method="post" target="_blank">
-      <input type="submit" value="Pay €2.80" style="background-color: #2196F3; color: white; border: none; padding: 8px 16px; border-radius: 5px;">
-    </form>
-  </div>
+<div style="margin-top: 15px;">
+  <p><strong>Borrow for 2 weeks – €2.80</strong></p>
+  <div id="paypal-button-kate-2weeks"></div>
+  <script>
+    paypal.Buttons({
+      style: { color: 'blue', label: 'pay', shape: 'pill' },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "The Skinflint - Borrow for 2 weeks",
+            amount: { value: '2.80' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
+        });
+      }
+    }).render('#paypal-button-kate-2weeks');
+  </script>
+</div>
 
-  <!-- Borrow for 4 weeks -->
-  <div style="margin-top: 10px;">
-    <p><strong>Borrow for 4 weeks – €5.00</strong></p>
-    <form action="https://www.paypal.com/ncp/payment/J2LLGFZ2SBLYG" method="post" target="_blank">
-      <input type="submit" value="Pay €5.00" style="background-color: #0b7dda; color: white; border: none; padding: 8px 16px; border-radius: 5px;">
-    </form>
-  </div>
+<!-- Borrow for 4 weeks -->
+<div style="margin-top: 10px;">
+  <p><strong>Borrow for 4 weeks – €5.00</strong></p>
+  <div id="paypal-button-kate-4weeks"></div>
+  <script>
+    paypal.Buttons({
+      style: { color: 'blue', label: 'pay', shape: 'pill' },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "The Skinflint - Borrow for 4 weeks",
+            amount: { value: '5.00' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
+        });
+      }
+    }).render('#paypal-button-kate-4weeks');
+  </script>
+</div>
 
-  <!-- Buy and keep forever -->
-  <div style="margin-top: 10px;">
-    <p><strong>Buy eBook (Forever) – €5.80</strong></p>
-    <form action="https://www.paypal.com/ncp/payment/XHJQ2QSNFK47C" method="post" target="_blank">
-      <input type="submit" value="Pay €5.80" style="background-color: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 5px;">
-    </form>
-  </div>
+<!-- Buy and keep forever -->
+<div style="margin-top: 10px;">
+  <p><strong>Buy eBook (Forever) – €5.80</strong></p>
+  <div id="paypal-button-kate-own"></div>
+  <script>
+    paypal.Buttons({
+      style: { color: 'gold', label: 'pay', shape: 'pill' },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "The Skinflint - Own Forever",
+            amount: { value: '5.80' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
+        });
+      }
+    }).render('#paypal-button-kate-own');
+  </script>
 </div>
     </div>
   </section>
