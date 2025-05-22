@@ -2,18 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jedot Books | Jedot Holding Services</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .book-listing { background: white; border-radius: 8px; padding: 20px; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .book-item { margin-bottom: 20px; }
-    .book-item h3 { margin-top: 0; }
-    .price { font-weight: bold; }
-    .buttons a { display: inline-block; margin: 10px 10px 0 0; padding: 10px 15px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
-    .buttons a.borrow { background-color: #2196F3; }
-  </style>
   <script src="https://www.paypal.com/sdk/js?client-id=AT45qNgguC6V2qg7rPX727d0d6a27Zzfb_GSF8N-6yT2mtm1Zq_nao8Y4dJYbLLwAmemWsrUMqvypHse&disable-funding=paylater&currency=EUR"></script>
+  <style>
+    .book-container {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .book-cover img {
+      width: 220px;
+      border-radius: 8px;
+    }
+    .book-details {
+      flex: 1;
+    }
+    .book-details h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .book-details p {
+      line-height: 1.5;
+    }
+    .book-actions {
+      margin-top: 20px;
+    }
+    .book-actions .option {
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -29,174 +55,97 @@
   </header>
 
   <main>
-  <section class="books">
-    <h2>Jedot Books</h2>
-    <p>Browse and borrow our original titles, written with heart, wisdom, and creativity.</p>
-
-    <div class="book-list">
+    <section class="books">
+      <h2 style="text-align: center;">Jedot Books</h2>
 
       <!-- Book 1: Bothersome Kate -->
-      <div class="book-item" style="width: 320px; border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin: 10px; text-align: center;">
-  <img src="images/BothersomeKatecover.jpg" alt="Bothersome Kate" style="width: 100%; border-radius: 6px;">
-  <h3 style="margin-top: 10px;">Bothersome Kate</h3>
-  <p style="font-style: italic;">By Dorothy Ifeanyi Makasi</p>
-  <p>
-  Bothersome Kate is a humorous and heartwarming story about a Nigerian girl with a big mouth, a bold spirit, and a knack for turning every moment into a memorable one.
-</p>
-<p>
-  At school, she’s the self-appointed class reporter. At home, she questions every adult decision. And in church? Let’s just say even the pastor isn’t safe from her blunt observations.
-</p>
-<p>
-  Written with wit and warmth, Bothersome Kate is a celebration of bold Black girl energy, cultural pride, and the hilarious chaos of childhood.
-</p>
-  <p><strong>eBook format (PDF)</strong></p>
+      <div class="book-container">
+        <div class="book-cover">
+          <img src="images/BothersomeKatecover.jpg" alt="Bothersome Kate">
+        </div>
+        <div class="book-details">
+          <h2>Bothersome Kate</h2>
+          <p><em>By Dorothy Ifeanyi Makasi</em></p>
+          <p>A humorous and heartwarming story about a bold Nigerian girl who speaks her mind
+            and shakes up every room she walks into. Filled with wit, culture, and charm.</p>
+          <p><strong>Format:</strong> eBook (PDF)</p>
 
-  <!-- Borrow for 2 weeks -->
-<div style="margin-top: 15px;">
-  <p><strong>Borrow for 2 weeks – €2.80</strong></p>
-  <div id="paypal-button-kate-2weeks"></div>
-  <script>
-    paypal.Buttons({
-      style: { color: 'blue', label: 'pay', shape: 'pill' },
-      createOrder: function(data, actions) {
-        return actions.order.create({
-          purchase_units: [{
-            description: "Bothersome Kate - Borrow for 2 weeks",
-            amount: { value: '2.80' }
-          }]
-        });
-      },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        });
-      }
-    }).render('#paypal-button-kate-2weeks');
-  </script>
-</div>
-
-<!-- Borrow for 4 weeks -->
-<div style="margin-top: 10px;">
-  <p><strong>Borrow for 4 weeks – €5.00</strong></p>
-  <div id="paypal-button-kate-4weeks"></div>
-  <script>
-    paypal.Buttons({
-      style: { color: 'blue', label: 'pay', shape: 'pill' },
-      createOrder: function(data, actions) {
-        return actions.order.create({
-          purchase_units: [{
-            description: "Bothersome Kate - Borrow for 4 weeks",
-            amount: { value: '5.00' }
-          }]
-        });
-      },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        });
-      }
-    }).render('#paypal-button-kate-4weeks');
-  </script>
-</div>
-
-<!-- Buy and keep forever -->
-<div style="margin-top: 10px;">
-  <p><strong>Buy eBook (Forever) – €5.80</strong></p>
-  <div id="paypal-button-kate-own"></div>
-  <script>
-    paypal.Buttons({
-      style: { color: 'gold', label: 'pay', shape: 'pill' },
-      createOrder: function(data, actions) {
-        return actions.order.create({
-          purchase_units: [{
-            description: "Bothersome Kate - Own Forever",
-            amount: { value: '5.80' }
-          }]
-        });
-      },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        });
-      }
-    }).render('#paypal-button-kate-own');
-  </script>
-</div>
+          <div class="book-actions">
+            <div class="option">
+              <p><strong>Borrow for 2 weeks – €2.80</strong></p>
+              <div id="paypal-button-kate-2weeks"></div>
+            </div>
+            <div class="option">
+              <p><strong>Borrow for 4 weeks – €5.00</strong></p>
+              <div id="paypal-button-kate-4weeks"></div>
+            </div>
+            <div class="option">
+              <p><strong>Own it forever – €5.80</strong></p>
+              <div id="paypal-button-kate-own"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Book 2: The Skinflint -->
-      <div class="book-item" style="width: 320px; border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin: 10px; text-align: center;">
-  <img src="images/TheSkinflintcover.jpg" alt="The Skinflint" style="width: 100%; border-radius: 6px;">
-  <h3 style="margin-top: 10px;">The Skinflint</h3>
-  <p style="font-style: italic;">By Dorothy Ifeanyi Makasi</p>
-  <p>Mr. Odiegwu is a man of ambition, charm, and complexity. In a society riddled with inequality, his cunning survival instincts drive him through a series of morally ambiguous ventures. As he chases wealth and status by any means necessary, he navigates deception, manipulation, and unexpected consequences. "The Skinflint" is a thought-provoking tale of ambition and morality, exposing the cost of success when conscience is set aside. Captivating and bold, this novel explores the thin line between desperation and determination.</p>
-  <p><strong>eBook format (PDF)</strong></p>
+      <div class="book-container">
+        <div class="book-cover">
+          <img src="images/TheSkinflintcover.jpg" alt="The Skinflint">
+        </div>
+        <div class="book-details">
+          <h2>The Skinflint</h2>
+          <p><em>By Dorothy Ifeanyi Makasi</em></p>
+          <p>Mr. Odiegwu is a man of ambition, charm, and complexity. In a society riddled with inequality,
+             his survival instincts drive him through morally grey paths. This book explores ambition,
+             choices, and the price of ignoring conscience.</p>
+          <p><strong>Format:</strong> eBook (PDF)</p>
 
- <!-- Borrow for 2 weeks -->
-  <div style="margin-top: 15px;">
-    <p><strong>Borrow for 2 weeks – €2.80</strong></p>
-    <div id="paypal-button-skinflint-2weeks"></div>
-    <script>
-      paypal.Buttons({
-        style: { color: 'blue', label: 'pay', shape: 'pill' },
-        createOrder: (data, actions) => actions.order.create({
-          purchase_units: [{
-            description: "The Skinflint - Borrow for 2 weeks",
-            amount: { value: '2.80' }
-          }]
-        }),
-        onApprove: (data, actions) => actions.order.capture().then(details => {
-          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        })
-      }).render('#paypal-button-skinflint-2weeks');
-    </script>
-  </div>
-
-  <!-- Borrow for 4 weeks -->
-  <div style="margin-top: 10px;">
-    <p><strong>Borrow for 4 weeks – €5.00</strong></p>
-    <div id="paypal-button-skinflint-4weeks"></div>
-    <script>
-      paypal.Buttons({
-        style: { color: 'blue', label: 'pay', shape: 'pill' },
-        createOrder: (data, actions) => actions.order.create({
-          purchase_units: [{
-            description: "The Skinflint - Borrow for 4 weeks",
-            amount: { value: '5.00' }
-          }]
-        }),
-        onApprove: (data, actions) => actions.order.capture().then(details => {
-          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        })
-      }).render('#paypal-button-skinflint-4weeks');
-    </script>
-  </div>
-
-  <!-- Buy forever -->
-  <div style="margin-top: 10px;">
-    <p><strong>Buy eBook (Forever) – €5.80</strong></p>
-    <div id="paypal-button-skinflint-own"></div>
-    <script>
-      paypal.Buttons({
-        style: { color: 'gold', label: 'pay', shape: 'pill' },
-        createOrder: (data, actions) => actions.order.create({
-          purchase_units: [{
-            description: "The Skinflint - Own Forever",
-            amount: { value: '5.80' }
-          }]
-        }),
-        onApprove: (data, actions) => actions.order.capture().then(details => {
-          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        })
-      }).render('#paypal-button-skinflint-own');
-    </script>
-  </div>
-</div>
-    </div>
-  </section>
-</main>
+          <div class="book-actions">
+            <div class="option">
+              <p><strong>Borrow for 2 weeks – €2.80</strong></p>
+              <div id="paypal-button-skinflint-2weeks"></div>
+            </div>
+            <div class="option">
+              <p><strong>Borrow for 4 weeks – €5.00</strong></p>
+              <div id="paypal-button-skinflint-4weeks"></div>
+            </div>
+            <div class="option">
+              <p><strong>Own it forever – €5.80</strong></p>
+              <div id="paypal-button-skinflint-own"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Jedot Holding Services. All rights reserved.</p>
+    <p style="text-align:center">&copy; 2025 Jedot Holding Services. All rights reserved.</p>
   </footer>
+
+  <!-- PayPal Button Scripts -->
+  <script>
+    function renderButton(id, description, amount) {
+      paypal.Buttons({
+        style: { color: 'blue', label: 'pay', shape: 'pill' },
+        createOrder: (data, actions) => actions.order.create({
+          purchase_units: [{ description, amount: { value: amount } }]
+        }),
+        onApprove: (data, actions) => actions.order.capture().then(details => {
+          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
+        })
+      }).render(id);
+    }
+
+    // Bothersome Kate
+    renderButton('#paypal-button-kate-2weeks', 'Bothersome Kate - 2 Weeks', '2.80');
+    renderButton('#paypal-button-kate-4weeks', 'Bothersome Kate - 4 Weeks', '5.00');
+    renderButton('#paypal-button-kate-own', 'Bothersome Kate - Own Forever', '5.80');
+
+    // The Skinflint
+    renderButton('#paypal-button-skinflint-2weeks', 'The Skinflint - 2 Weeks', '2.80');
+    renderButton('#paypal-button-skinflint-4weeks', 'The Skinflint - 4 Weeks', '5.00');
+    renderButton('#paypal-button-skinflint-own', 'The Skinflint - Own Forever', '5.80');
+  </script>
 </body>
 </html>
