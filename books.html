@@ -9,10 +9,10 @@
   <style>
     .book-container {
       display: flex;
-      flex-direction: row;
-      gap: 30px;
+      flex-direction: column;
+      gap: 20px;
       margin: 40px auto;
-      max-width: 1000px;
+      max-width: 600px;
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 10px;
@@ -20,24 +20,36 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .book-cover img {
-      width: 220px;
+      width: 100%;
+      max-width: 300px;
       border-radius: 8px;
+      margin: 0 auto;
     }
     .book-details {
-      flex: 1;
+      text-align: center;
     }
     .book-details h2 {
-      margin-top: 0;
+      margin-top: 10px;
       font-size: 1.5rem;
-    }
-    .book-details p {
-      line-height: 1.5;
     }
     .book-actions {
       margin-top: 20px;
     }
-    .book-actions .option {
-      margin-bottom: 15px;
+    .book-actions button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #0070ba;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .paypal-button-wrapper {
+      margin-top: 20px;
+      display: none;
     }
   </style>
 </head>
@@ -69,21 +81,14 @@
           <p>A humorous and heartwarming story about a bold Nigerian girl who speaks her mind
             and shakes up every room she walks into. Filled with wit, culture, and charm.</p>
           <p><strong>Format:</strong> eBook (PDF)</p>
-
-          <div class="book-actions">
-            <div class="option">
-              <p><strong>Borrow for 2 weeks – €2.80</strong></p>
-              <div id="paypal-button-kate-2weeks"></div>
-            </div>
-            <div class="option">
-              <p><strong>Borrow for 4 weeks – €5.00</strong></p>
-              <div id="paypal-button-kate-4weeks"></div>
-            </div>
-            <div class="option">
-              <p><strong>Own it forever – €5.80</strong></p>
-              <div id="paypal-button-kate-own"></div>
-            </div>
-          </div>
+        </div>
+        <div class="book-actions">
+          <button onclick="showPayPal('paypal-kate-2weeks')">Borrow for 2 weeks – €2.80</button>
+          <button onclick="showPayPal('paypal-kate-4weeks')">Borrow for 4 weeks – €5.00</button>
+          <button onclick="showPayPal('paypal-kate-own')">Buy Forever – €5.80</button>
+          <div id="paypal-kate-2weeks" class="paypal-button-wrapper"></div>
+          <div id="paypal-kate-4weeks" class="paypal-button-wrapper"></div>
+          <div id="paypal-kate-own" class="paypal-button-wrapper"></div>
         </div>
       </div>
 
@@ -99,21 +104,14 @@
              his survival instincts drive him through morally grey paths. This book explores ambition,
              choices, and the price of ignoring conscience.</p>
           <p><strong>Format:</strong> eBook (PDF)</p>
-
-          <div class="book-actions">
-            <div class="option">
-              <p><strong>Borrow for 2 weeks – €2.80</strong></p>
-              <div id="paypal-button-skinflint-2weeks"></div>
-            </div>
-            <div class="option">
-              <p><strong>Borrow for 4 weeks – €5.00</strong></p>
-              <div id="paypal-button-skinflint-4weeks"></div>
-            </div>
-            <div class="option">
-              <p><strong>Own it forever – €5.80</strong></p>
-              <div id="paypal-button-skinflint-own"></div>
-            </div>
-          </div>
+        </div>
+        <div class="book-actions">
+          <button onclick="showPayPal('paypal-skinflint-2weeks')">Borrow for 2 weeks – €2.80</button>
+          <button onclick="showPayPal('paypal-skinflint-4weeks')">Borrow for 4 weeks – €5.00</button>
+          <button onclick="showPayPal('paypal-skinflint-own')">Buy Forever – €5.80</button>
+          <div id="paypal-skinflint-2weeks" class="paypal-button-wrapper"></div>
+          <div id="paypal-skinflint-4weeks" class="paypal-button-wrapper"></div>
+          <div id="paypal-skinflint-own" class="paypal-button-wrapper"></div>
         </div>
       </div>
     </section>
@@ -123,29 +121,28 @@
     <p style="text-align:center">&copy; 2025 Jedot Holding Services. All rights reserved.</p>
   </footer>
 
-  <!-- PayPal Button Scripts -->
   <script>
-    function renderButton(id, description, amount) {
-      paypal.Buttons({
-        style: { color: 'blue', label: 'pay', shape: 'pill' },
-        createOrder: (data, actions) => actions.order.create({
-          purchase_units: [{ description, amount: { value: amount } }]
-        }),
-        onApprove: (data, actions) => actions.order.capture().then(details => {
-          alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        })
-      }).render(id);
+    function showPayPal(id) {
+      document.querySelectorAll('.paypal-button-wrapper').forEach(el => el.style.display = 'none');
+      const container = document.getElementById(id);
+      container.style.display = 'block';
+      if (!container.hasChildNodes()) {
+        let label = container.id.includes('2weeks') ? 'Borrow for 2 weeks' :
+                    container.id.includes('4weeks') ? 'Borrow for 4 weeks' :
+                    'Buy Forever';
+        let price = container.id.includes('2weeks') ? '2.80' :
+                    container.id.includes('4weeks') ? '5.00' : '5.80';
+        paypal.Buttons({
+          style: { color: 'blue', label: 'pay', shape: 'pill' },
+          createOrder: (data, actions) => actions.order.create({
+            purchase_units: [{ description: label, amount: { value: price } }]
+          }),
+          onApprove: (data, actions) => actions.order.capture().then(details => {
+            alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
+          })
+        }).render(`#${id}`);
+      }
     }
-
-    // Bothersome Kate
-    renderButton('#paypal-button-kate-2weeks', 'Bothersome Kate - 2 Weeks', '2.80');
-    renderButton('#paypal-button-kate-4weeks', 'Bothersome Kate - 4 Weeks', '5.00');
-    renderButton('#paypal-button-kate-own', 'Bothersome Kate - Own Forever', '5.80');
-
-    // The Skinflint
-    renderButton('#paypal-button-skinflint-2weeks', 'The Skinflint - 2 Weeks', '2.80');
-    renderButton('#paypal-button-skinflint-4weeks', 'The Skinflint - 4 Weeks', '5.00');
-    renderButton('#paypal-button-skinflint-own', 'The Skinflint - Own Forever', '5.80');
   </script>
 </body>
 </html>
