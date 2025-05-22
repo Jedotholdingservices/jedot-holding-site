@@ -131,76 +131,65 @@
   <p>Mr. Odiegwu is a man of ambition, charm, and complexity. In a society riddled with inequality, his cunning survival instincts drive him through a series of morally ambiguous ventures. As he chases wealth and status by any means necessary, he navigates deception, manipulation, and unexpected consequences. "The Skinflint" is a thought-provoking tale of ambition and morality, exposing the cost of success when conscience is set aside. Captivating and bold, this novel explores the thin line between desperation and determination.</p>
   <p><strong>eBook format (PDF)</strong></p>
 
-  <!-- Borrow for 2 weeks -->
-<div style="margin-top: 15px;">
-  <p><strong>Borrow for 2 weeks – €2.80</strong></p>
-  <div id="paypal-button-kate-2weeks"></div>
-  <script>
-    paypal.Buttons({
-      style: { color: 'blue', label: 'pay', shape: 'pill' },
-      createOrder: function(data, actions) {
-        return actions.order.create({
+ <!-- Borrow for 2 weeks -->
+  <div style="margin-top: 15px;">
+    <p><strong>Borrow for 2 weeks – €2.80</strong></p>
+    <div id="paypal-button-skinflint-2weeks"></div>
+    <script>
+      paypal.Buttons({
+        style: { color: 'blue', label: 'pay', shape: 'pill' },
+        createOrder: (data, actions) => actions.order.create({
           purchase_units: [{
             description: "The Skinflint - Borrow for 2 weeks",
             amount: { value: '2.80' }
           }]
-        });
-      },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
+        }),
+        onApprove: (data, actions) => actions.order.capture().then(details => {
           alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        });
-      }
-    }).render('#paypal-button-kate-2weeks');
-  </script>
-</div>
+        })
+      }).render('#paypal-button-skinflint-2weeks');
+    </script>
+  </div>
 
-<!-- Borrow for 4 weeks -->
-<div style="margin-top: 10px;">
-  <p><strong>Borrow for 4 weeks – €5.00</strong></p>
-  <div id="paypal-button-kate-4weeks"></div>
-  <script>
-    paypal.Buttons({
-      style: { color: 'blue', label: 'pay', shape: 'pill' },
-      createOrder: function(data, actions) {
-        return actions.order.create({
+  <!-- Borrow for 4 weeks -->
+  <div style="margin-top: 10px;">
+    <p><strong>Borrow for 4 weeks – €5.00</strong></p>
+    <div id="paypal-button-skinflint-4weeks"></div>
+    <script>
+      paypal.Buttons({
+        style: { color: 'blue', label: 'pay', shape: 'pill' },
+        createOrder: (data, actions) => actions.order.create({
           purchase_units: [{
             description: "The Skinflint - Borrow for 4 weeks",
             amount: { value: '5.00' }
           }]
-        });
-      },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
+        }),
+        onApprove: (data, actions) => actions.order.capture().then(details => {
           alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        });
-      }
-    }).render('#paypal-button-kate-4weeks');
-  </script>
-</div>
+        })
+      }).render('#paypal-button-skinflint-4weeks');
+    </script>
+  </div>
 
-<!-- Buy and keep forever -->
-<div style="margin-top: 10px;">
-  <p><strong>Buy eBook (Forever) – €5.80</strong></p>
-  <div id="paypal-button-kate-own"></div>
-  <script>
-    paypal.Buttons({
-      style: { color: 'gold', label: 'pay', shape: 'pill' },
-      createOrder: function(data, actions) {
-        return actions.order.create({
+  <!-- Buy forever -->
+  <div style="margin-top: 10px;">
+    <p><strong>Buy eBook (Forever) – €5.80</strong></p>
+    <div id="paypal-button-skinflint-own"></div>
+    <script>
+      paypal.Buttons({
+        style: { color: 'gold', label: 'pay', shape: 'pill' },
+        createOrder: (data, actions) => actions.order.create({
           purchase_units: [{
             description: "The Skinflint - Own Forever",
             amount: { value: '5.80' }
           }]
-        });
-      },
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
+        }),
+        onApprove: (data, actions) => actions.order.capture().then(details => {
           alert('Thank you, ' + details.payer.name.given_name + '! You will receive your book at jedotholdingservices2025@gmail.com');
-        });
-      }
-    }).render('#paypal-button-kate-own');
-  </script>
+        })
+      }).render('#paypal-button-skinflint-own');
+    </script>
+  </div>
 </div>
     </div>
   </section>
