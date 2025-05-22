@@ -113,6 +113,45 @@ body {
   box-sizing: border-box;
 }
 
+.book-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.book-cover img {
+  width: 220px;
+  border-radius: 8px;
+}
+
+.book-details {
+  flex: 1;
+}
+
+.book-details h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.book-details p {
+  line-height: 1.5;
+}
+
+.book-actions {
+  margin-top: 20px;
+}
+
+.book-actions .option {
+  margin-bottom: 15px;
+}
+
   footer {
     text-align: center;
     padding: 20px;
