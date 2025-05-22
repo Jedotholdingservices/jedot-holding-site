@@ -99,20 +99,6 @@ body {
   background-color: #005a9e;
 }
 
-.book-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 20px;
-}
-
-.book-item {
-  flex: 1 1 300px;
-  max-width: 360px;
-  box-sizing: border-box;
-}
-
 .book-container {
   display: flex;
   flex-direction: row;
