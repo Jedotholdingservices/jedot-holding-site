@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Products - Jedot Holding Services</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input.search { width: 100%; padding: 10px; font-size: 1rem; margin-bottom: 20px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 20px; }
+    .product-card { border: 1px solid #ccc; border-radius: 5px; padding: 15px; text-align: center; }
+    .product-card img { width: 100%; border-radius: 5px; }
+    .product-card h3 { color: #0b3d91; margin: 10px 0; }
+    .product-card a { background: #fbc02d; color: #111; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>Search Products</h1>
+  <input type="text" class="search" placeholder="Search books, music, clothes..." />
+
+  <div class="product-grid">
+    <!-- Example products from all categories -->
+    <div class="product-card">
+      <img src="images/BothersomeKatecover.jpg" alt="Bothersome Kate" />
+      <h3>Bothersome Kate</h3>
+      <a href="books.html">View Book</a>
+    </div>
+    <div class="product-card">
+      <img src="images/TheSkinflintcover.jpg" alt="The Skinflint" />
+      <h3>The Skinflint</h3>
+      <a href="books.html">View Book</a>
+    </div>
+    <div class="product-card">
+      <img src="images/dress1.jpg" alt="Women's Dress" />
+      <h3>Women's Dress</h3>
+      <a href="female.html">View Clothing</a>
+    </div>
+    <div class="product-card">
+      <img src="images/Three-quarter_Purple_Adire_Gown.jpeg" alt="Women's Jacket" />
+      <h3>Women's Jacket</h3>
+      <a href="female.html">View Clothing</a>
+    </div>
+    <!-- Add more products here -->
+  </div>
+
+  <script>
+    const searchInput = document.querySelector('.search');
+    const productCards = document.querySelectorAll('.product-card');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+
+      productCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
