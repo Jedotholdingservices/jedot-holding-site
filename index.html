@@ -5,92 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jedot Holding Services</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/background.jpg" type="image/jpg">
+  <link rel="icon" href="images/JEDOTlogo.jpg" type="image/jpg">
   <meta property="og:title" content="Jedot Holding Services">
   <meta property="og:description" content="African fashion, music, books, and creative services by Dorothy & Jessica.">
-  <meta property="og:image" content="https://jedotholdingservices.com/images/background.jpg">
+  <meta property="og:image" content="https://jedotholdingservices.com/images/JEDOTlogo.jpg">
   <meta property="og:url" content="https://jedotholdingservices.com">
   <meta name="twitter:card" content="summary_large_image">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('images/background.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: top center;
-      background-attachment: fixed;
-    }
-
-    nav {
-      text-align: center;
-      margin-top: 16rem; /* pushes content below the background logo */
-    }
-
-    nav button {
-      margin: 0.5rem;
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      border-radius: 0.3rem;
-    }
-
-    .products {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .product-buttons button {
-      margin: 0.5rem;
-      padding: 0.75rem 1.25rem;
-      font-weight: bold;
-      border-radius: 0.3rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-      background-color: rgba(255, 255, 255, 0.6);
-    }
-  </style>
 </head>
-
 <body>
+  <header>
+    <div class="hero">
+    </div>
+    <nav>
+      <a href="about.html"><button>About</button></a>
+      <a href="contact.html"><button>Contact</button></a>
+      <a href="services.html"><button>Services</button></a>
+    </nav>
+  </header>
 
-  <nav>
-    <a href="about.html"><button>About</button></a>
-    <a href="contact.html"><button>Contact</button></a>
-    <a href="services.html"><button>Services</button></a>
-  </nav>
+<main>
+  <section class="products">
+    <h2>Products</h2>
+    <div class="product-buttons">
+      <a href="books.html"><button>Jedot Books</button></a>
+      <a href="music.html"><button>Jedot Music</button></a>
+      <button onclick="toggleClothing()">Jedot African Designers Clothes</button>
+    </div>
 
-  <main>
-    <section class="products">
-      <h2>Products</h2>
-      <div class="product-buttons">
-        <a href="books.html"><button>Jedot Books</button></a>
-        <a href="music.html"><button>Jedot Music</button></a>
-        <button onclick="toggleClothing()">Jedot African Designers Clothes</button>
-      </div>
+    <div id="clothing-sub" style="display: none; margin-top: 10px;">
+      <h3>Clothing Categories</h3>
+      <a href="male.html"><button>Men</button></a>
+      <a href="female.html"><button>Women</button></a>
+    </div>
+  </section>
+</main>
 
-      <div id="clothing-sub" style="display: none; margin-top: 10px;">
-        <h3>Clothing Categories</h3>
-        <a href="male.html"><button>Men</button></a>
-        <a href="female.html"><button>Women</button></a>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    function toggleClothing() {
-      const section = document.getElementById("clothing-sub");
-      section.style.display = section.style.display === "none" ? "block" : "none";
-    }
-  </script>
+<script>
+  function toggleClothing() {
+    const section = document.getElementById("clothing-sub");
+    section.style.display = section.style.display === "none" ? "block" : "none";
+  }
+</script>
 
   <footer>
     <p>&copy; 2025 Jedot Holding Services. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
