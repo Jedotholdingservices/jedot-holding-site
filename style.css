@@ -44,6 +44,13 @@ nav a:hover {
   background-color: #08407e; /* Darker blue on hover */
 }
 
+.hero {
+  background: url('images/background.jpg') center/cover no-repeat;
+  padding: 60px 20px;
+  text-align: center;
+  /* don't set color here since we'll color the text black specifically */
+}
+
 .hero h1 {
   color: black;
   font-family: cursive;
