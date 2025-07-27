@@ -44,16 +44,20 @@ nav a:hover {
   background-color: #08407e; /* Darker blue on hover */
 }
 
-.hero {
-  background: url('images/background.jpg') center/cover no-repeat;
-  padding: 60px 20px;
-  text-align: center;
-  color: white;
+.hero h1 {
+  color: black;
+  font-family: cursive;
+  font-size: 3em;
+  text-shadow: none; /* remove previous white shadow */
 }
 
-.hero h1 {
-  font-size: 3em;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+.hero .slogan {
+  color: black;
+  font-family: cursive;
+  font-style: italic; /* keep italic */
+  text-shadow: none;
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
 main {
