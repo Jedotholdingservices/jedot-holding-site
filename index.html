@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jedot Holding Services</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/JEDOTlogo.jpg" type="image/jpg">
+  <link rel="icon" href="images/background.jpg" type="image/jpg">
   <meta property="og:title" content="Jedot Holding Services">
   <meta property="og:description" content="African fashion, music, books, and creative services by Dorothy & Jessica.">
   <meta property="og:image" content="https://jedotholdingservices.com/images/background.jpg">
@@ -24,11 +24,8 @@
       color: white;
       padding: 10px 20px;
     }
-    .topbar .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: white;
-      margin-right: 20px;
+    .topbar .logo img {
+      height: 40px;
     }
     .search {
       flex-grow: 1;
@@ -108,13 +105,31 @@
       const section = document.getElementById("clothing-sub");
       section.style.display = section.style.display === "none" ? "block" : "none";
     }
+
+    function filterProducts() {
+      const query = document.querySelector('.search').value.toLowerCase();
+      const products = document.querySelectorAll('.product-card');
+
+      products.forEach(card => {
+        const title = card.querySelector('h3').innerText.toLowerCase();
+        if (title.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector('.search').addEventListener('input', filterProducts);
+    });
   </script>
 </head>
 <body>
   <header class="topbar">
     <div class="logo">
-  <img src="images/background.jpg" alt="Jedot Logo" style="height: 40px;">
-</div>
+      <img src="images/background.jpg" alt="Jedot Logo">
+    </div>
     <input type="text" class="search" placeholder="Search books, music, clothes...">
     <div class="nav-links">
       <a href="books.html">Jedot Books</a>
@@ -146,7 +161,7 @@
         <a href="books.html">View</a>
       </div>
       <div class="product-card">
-        <img src="images/almostforevercover.jpg" alt="Almost Forever">
+        <img src="images/AlmostForever_cover.jpg" alt="Almost Forever">
         <h3>Almost Forever</h3>
         <a href="books.html">View</a>
       </div>
