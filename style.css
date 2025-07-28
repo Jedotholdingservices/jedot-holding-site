@@ -48,6 +48,7 @@ nav a:hover {
   background: url('images/background.jpg') center/cover no-repeat;
   padding: 60px 20px;
   text-align: center;
+  height: 120px;
   /* don't set color here since we'll color the text black specifically */
 }
 
