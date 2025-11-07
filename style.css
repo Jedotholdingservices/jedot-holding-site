@@ -199,7 +199,13 @@ main {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.25rem;
-  cursor:
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.paypal-btn:hover {
+  background-color: #f1c232;
+}
 
 footer {
   text-align: center;
@@ -208,4 +214,5 @@ footer {
   color: white;
   margin-top: 40px;
 }
+
 
