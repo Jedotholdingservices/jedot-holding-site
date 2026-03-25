@@ -69,25 +69,31 @@
 
       <!-- Book 1: Bothersome Kate -->
       <div class="book-container">
-        <div class="book-cover">
-          <img src="images/BothersomeKatecover.jpg" alt="Bothersome Kate">
-        </div>
-        <div class="book-details">
-          <h2>Bothersome Kate</h2>
-          <p><em>By Dorothy Ifeanyi Makasi</em></p>
-          <p>A humorous and heartwarming story about a bold Nigerian girl who speaks her mind
-            and shakes up every room she walks into. Filled with wit, culture, and charm.</p>
-          <p><strong>Format:</strong> eBook (PDF)</p>
-        </div>
-        <div class="book-actions">
-          <button onclick="showPayPal('paypal-kate-2weeks')">Borrow for 2 weeks – €2.80</button>
-          <button onclick="showPayPal('paypal-kate-4weeks')">Borrow for 4 weeks – €5.00</button>
-          <button onclick="showPayPal('paypal-kate-own')">Buy Forever – €5.80</button>
-          <div id="paypal-kate-2weeks" class="paypal-button-wrapper"></div>
-          <div id="paypal-kate-4weeks" class="paypal-button-wrapper"></div>
-          <div id="paypal-kate-own" class="paypal-button-wrapper"></div>
-        </div>
-      </div>
+  <div class="book-cover">
+    <img src="images/BothersomeKatecover.jpg" alt="Bothersome Kate">
+  </div>
+  <div class="book-details">
+    <h2>Bothersome Kate</h2>
+    <p><em>By Dorothy Ifeanyi Makasi</em></p>
+    <p>A humorous and heartwarming story about a bold Nigerian girl who speaks her mind and shakes up every room she walks into.</p>
+  </div>
+
+  <div class="book-actions">
+
+    <h3>Hardcopy</h3>
+    <form action="https://www.paypal.com/ncp/payment/BD7K3AYBLP5ML" method="post" target="_blank">
+      <input class="paypal-btn" type="submit" value="Buy Hardcopy – €5.80" />
+    </form>
+
+    <hr>
+
+    <h3>Softcopy</h3>
+    <form action="https://www.paypal.com/ncp/payment/9N2G44MGBB4SY" method="post" target="_blank">
+      <input class="paypal-btn" type="submit" value="Buy eBook – €5.00" />
+    </form>
+
+  </div>
+</div>
 
       <!-- Book 2: The Skinflint -->
       <div class="book-container">
@@ -103,11 +109,9 @@
           <p><strong>Format:</strong> eBook (PDF)</p>
         </div>
         <div class="book-actions">
-          <button onclick="showPayPal('paypal-skinflint-2weeks')">Borrow for 2 weeks – €2.80</button>
-          <button onclick="showPayPal('paypal-skinflint-4weeks')">Borrow for 4 weeks – €5.00</button>
-          <button onclick="showPayPal('paypal-skinflint-own')">Buy Forever – €5.80</button>
-          <div id="paypal-skinflint-2weeks" class="paypal-button-wrapper"></div>
-          <div id="paypal-skinflint-4weeks" class="paypal-button-wrapper"></div>
+          <button onclick="showPayPal('paypal-skinflint-softcopy')">Softcopy – €5.00</button>
+          <button onclick="showPayPal('paypal-skinflint-own')">Hardcopy – €5.80</button>
+          <div id="paypal-skinflint-hardcopy" class="paypal-button-wrapper"></div>
           <div id="paypal-skinflint-own" class="paypal-button-wrapper"></div>
         </div>
       </div>
@@ -143,21 +147,7 @@
     <!-- eBook Section -->
     <h3>eBook</h3>
 
-    <!-- Borrow for 2 weeks – €4 -->
-    <form action="https://www.paypal.com/ncp/payment/4TA3NYB3A3N4S" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-      <input class="paypal-btn" type="submit" value="Borrow for 2 weeks – €4.00" />
-      <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-      <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;" /></section>
-    </form>
-
-    <!-- Borrow for 4 weeks – €6.80 -->
-    <form action="https://www.paypal.com/ncp/payment/RPQ2CJB6FQZFA" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-      <input class="paypal-btn" type="submit" value="Borrow for 4 weeks – €6.80" />
-      <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-      <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;" /></section>
-    </form>
-
-    <!-- Buy Forever – €10 -->
+    <!-- Softcopy – €10 -->
     <form action="https://www.paypal.com/ncp/payment/ZNQ2Y684NSGF4" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
       <input class="paypal-btn" type="submit" value="Buy Forever – €10.00" />
       <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
@@ -196,20 +186,6 @@
 
     <!-- eBook Section -->
     <h3>eBook</h3>
-
-    <!-- Borrow for 2 weeks – €4.80 -->
-<form action="https://www.paypal.com/ncp/payment/6LYFSUMRNQ2DE" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="paypal-btn" type="submit" value="Borrow for 2 weeks – €4.80" />
-  <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-  <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-</form>
-
-    <!-- Borrow for 4 weeks – €8.50 -->
-<form action="https://www.paypal.com/ncp/payment/FNAFJKCSMAGTW" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="paypal-btn" type="submit" value="Borrow for 4 weeks – €8.50" />
-  <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-  <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-</form>
 
     <!-- Buy Forever – €11.50 -->
 <form action="https://www.paypal.com/ncp/payment/8C96HF3KELFY2" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
@@ -254,29 +230,9 @@
     <!-- eBook Section -->
     <h3>eBook</h3>
 
-    <!-- Borrow for 2 weeks – €3.00 -->
-    <form action="https://www.paypal.com/ncp/payment/ARGSRUC74XTZL" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-      <input class="paypal-btn" type="submit" value="Borrow for 2 weeks – €3.00" />
-      <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-      <section style="font-size: 0.75rem;"> Powered by 
-        <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" 
-             alt="paypal" style="height:0.875rem;vertical-align:middle;"/>
-      </section>
-    </form>
-
-    <!-- Borrow for 4 weeks – €5.60 -->
+    <!-- Softcopy – €5.00 -->
     <form action="https://www.paypal.com/ncp/payment/U6QR3QFAXH8CG" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
       <input class="paypal-btn" type="submit" value="Borrow for 4 weeks – €5.60" />
-      <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-      <section style="font-size: 0.75rem;"> Powered by 
-        <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" 
-             alt="paypal" style="height:0.875rem;vertical-align:middle;"/>
-      </section>
-    </form>
-
-    <!-- Buy Forever – €6.80 -->
-    <form action="https://www.paypal.com/ncp/payment/9VUQRQW6VTKW2" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-      <input class="paypal-btn" type="submit" value="Buy Forever – €6.80" />
       <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
       <section style="font-size: 0.75rem;"> Powered by 
         <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" 
@@ -353,27 +309,4 @@
   <footer>
     <p style="text-align:center">&copy; 2025 - 2026 Jedot Holding Services. All rights reserved.</p>
   </footer>
-
-  <script src="https://www.paypal.com/sdk/js?client-id=AT45qNgguC6V2qg7rPX727d0d6a27Zzfb_GSF8N-6yT2mtm1Zq_nao8Y4dJYbLLwAmemWsrUMqvypHse&disable-funding=paylater&currency=EUR"></script>
-<script>
-function showPayPal(id) {
-  const container = document.getElementById(id);
-  if (!container) return;
-  container.style.display = 'block';
-}
-
-paypal.Buttons({
-  createOrder: function(data, actions) {
-    return actions.order.create({
-      purchase_units: [{ amount: { value: '10.00' } }]
-    });
-  },
-  onApprove: function(data, actions) {
-    return actions.order.capture().then(function(details) {
-      alert('Transaction completed by ' + details.payer.name.given_name);
-    });
-  }
-}).render('#paypal-container');
-</script>
-</body>
-</html>
+  
